@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#8a2f1b">
+<meta name="description" content="Free reader for classic books and poetry in Kannada, Hindi, English and other Indian languages.">
+<title>Sahitya</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <header class="top">
+    <h1><span class="mark">ಸಾಹಿತ್ಯ</span><span class="sub">Sahitya</span></h1>
+    <button id="themeBtn" class="ghost" aria-label="Change theme">◐</button>
+  </header>
+
+  <main id="main">
+
+    <!-- Explore -->
+    <section id="view-explore" class="view">
+      <form id="searchForm" class="search" role="search">
+        <input id="q" type="search" placeholder="Search a book, poem or writer" enterkeyhint="search" autocomplete="off" autocapitalize="off">
+        <button type="submit" class="primary">Search</button>
+      </form>
+
+      <div id="langs" class="chips scroll" aria-label="Language"></div>
+
+      <div id="modes" class="seg" role="group" aria-label="Search in">
+        <button type="button" data-mode="works" class="on">Books &amp; poems</button>
+        <button type="button" data-mode="authors">Writers</button>
+      </div>
+
+      <div id="suggest" class="chips scroll" aria-label="Try these"></div>
+
+      <p id="status" class="status" aria-live="polite"></p>
+      <ul id="results" class="cards"></ul>
+      <button id="moreBtn" class="more" type="button" hidden>Load more</button>
+    </section>
+
+    <!-- Saved -->
+    <section id="view-saved" class="view" hidden>
+      <h2>Saved</h2>
+      <p class="hint">Tap ☆ on any book to keep it here. Saved texts open without internet.</p>
+      <p id="savedEmpty" class="status" hidden>Nothing saved yet.</p>
+      <ul id="savedList" class="cards"></ul>
+    </section>
+
+    <!-- About -->
+    <section id="view-about" class="view" hidden>
+      <h2>About Sahitya</h2>
+      <p>Sahitya (ಸಾಹಿತ್ಯ) is a free reader for literature and poetry in Kannada, Hindi, English and many other Indian languages. No account, no ads, no payment.</p>
+      <h3>Where the books come from</h3>
+      <ul class="plain">
+        <li><b>Wikisource</b> – community-proofread texts in Kannada, Hindi, Tamil, Telugu, Malayalam, Bengali, Marathi, Gujarati, Punjabi, Sanskrit, Odia, Urdu, Nepali and English.</li>
+        <li><b>Project Gutenberg</b> – free e-books, mostly English plus some Indian-language titles.</li>
+        <li><b>Internet Archive</b> – scanned books, including many Indian-language titles. Only openly readable scans are listed.</li>
+      </ul>
+      <h3>Good to know</h3>
+      <ul class="plain">
+        <li>Search works best in the language's own script, for example ಬಸವಣ್ಣ or कबीर.</li>
+        <li>Newer books are usually still under copyright, so the catalogue is strongest for classics, devotional poetry and older authors.</li>
+        <li>Copyright rules differ by country. If you see a book that should not be listed, report it to the source site.</li>
+        <li>Use A− / A+ and the ◐ button to change text size and theme while reading.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <nav class="bottom" aria-label="Main">
+    <button data-view="explore" class="on"><span class="ic">⌕</span>Explore</button>
+    <button data-view="saved"><span class="ic">★</span>Saved</button>
+    <button data-view="about"><span class="ic">ⓘ</span>About</button>
+  </nav>
+
+  <!-- Reader -->
+  <div id="reader" class="reader" hidden>
+    <div class="rbar">
+      <button id="rBack" class="ghost" aria-label="Back">←</button>
+      <div id="rTitle" class="rtitle" dir="auto"></div>
+      <button id="rSmaller" class="ghost" aria-label="Smaller text">A−</button>
+      <button id="rBigger" class="ghost" aria-label="Bigger text">A+</button>
+      <button id="rSave" class="ghost" aria-label="Save">☆</button>
+    </div>
+    <div id="rBody" class="rbody">
+      <div id="rContent" class="prose"></div>
+    </div>
+    <div id="rFoot" class="rfoot" hidden>
+      <button id="pPrev" type="button">‹ Previous</button>
+      <span id="pInfo"></span>
+      <button id="pNext" type="button">Next ›</button>
+    </div>
+  </div>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>

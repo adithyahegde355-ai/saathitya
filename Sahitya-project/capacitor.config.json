@@ -1,0 +1,13 @@
+{
+  "appId": "com.sahitya.reader",
+  "appName": "Sahitya",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "CapacitorHttp": {
+      "enabled": true
+    }
+  }
+}
